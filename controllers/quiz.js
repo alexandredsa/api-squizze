@@ -10,11 +10,15 @@ module.exports = {
 
         });
     },
-    create: function(req, res){
-      var quiz = new Quiz(req.body);
+    create: function(req, res) {
+        var quiz = new Quiz(req.body);
 
-      quiz.save(function (err){
-           res.send(err == null) ? {msg: 'success'} : {msg : err}
-      });
+        quiz.save(function(err) {
+            res.send(err == null) ? {
+                msg: 'success'
+            } : {
+                msg: err
+            }
+        });
     }
 };
