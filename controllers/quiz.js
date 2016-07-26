@@ -18,26 +18,3 @@ module.exports = {
       });
     }
 };
-
-//var Quiz = require('./models/quiz');
-//
-//var quizController = {
-//  create: function(req, res) {
-//    var quiz = req.body.quiz;
-//     quiz.save(function(err) {
-//        res.send(err == null) ? {msg: ''} : {msg : err}
-//      });
-//    };
-//
-//  show: function(req, res) {
-//    Quiz.find({},function(err, quizzes){
-//      if(!err)
-//        res.send(quizzes);
-//      else
-//        throw err;
-//        
-//    });
-//  }
-//}
-//
-//module.exports = quizController;
