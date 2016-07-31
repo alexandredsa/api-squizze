@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var Alternative = new Schema({
+    _id: false,
     text: {
         type: String,
         required: true
@@ -11,23 +12,23 @@ var Alternative = new Schema({
         default: false
     }
 }, {
-    versionKey: false 
+    versionKey: false
 });
 
 
 var Question = new Schema({
+    _id: false,
     wording: {
         type: String,
         required: true
     },
     time: {
         type: Number,
-        required: true,
         min: 0
     },
-    alernatives: [Alternative]
+    alternatives: [Alternative]
 }, {
-    versionKey: false 
+    versionKey: false
 });
 
 var quizSchema = new Schema({
@@ -57,9 +58,14 @@ var quizSchema = new Schema({
         required: true,
         min: 0
     },
-    questions: [Question]
+    questions: [Question],
+    questionCount: {
+        type: Number,
+        required: true,
+        min: 0
+    }
 }, {
-    versionKey: false 
+    versionKey: false
 });
 
 // Validators

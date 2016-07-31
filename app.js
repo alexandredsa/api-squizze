@@ -4,6 +4,7 @@ favicon = require('serve-favicon'),
 logger = require('morgan'),
 cookieParser = require('cookie-parser'),
 bodyParser = require('body-parser'),
+category = require('./routes/category'),
 quiz = require('./routes/quiz'),
 performance = require('./routes/performance'),
 mongoose = require('mongoose'),
@@ -25,6 +26,7 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/category', category);
 app.use('/quiz', quiz);
 app.use('/performance', performance);
 

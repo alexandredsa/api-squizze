@@ -14,11 +14,8 @@ module.exports = {
         var quiz = new Quiz(req.body);
 
         quiz.save(function(err) {
-            res.send(err == null) ? {
-                msg: 'success'
-            } : {
-                msg: err
-            }
+            res.status(err !== null ? 400 : 200);
+            res.send(err);
         });
     }
 };
