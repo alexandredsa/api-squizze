@@ -2,7 +2,7 @@ var Performance = require('../models/performance');
 
 module.exports = {
     show: function(req, res) {
-        Performance.find({}, function(err, performances) {
+        Performance.find({}, function(err,performances) {
             if (!err)
                 res.json(performances);
             else
