@@ -7,6 +7,10 @@ var userSchema = new Schema({
         required: true,
         unique: true
     },
+    email: {
+        type: String,
+        required: true
+    },
     picture: {
         type: String,
         required: true
