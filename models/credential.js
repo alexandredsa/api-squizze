@@ -10,6 +10,10 @@ var credentialSchema = new Schema({
     passwordHash: {
         type: String,
         required: true
+    },
+    token: {
+        type: String,
+        unique: true
     }
 }, {
     versionKey: false
