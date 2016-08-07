@@ -4,7 +4,7 @@ var middleware = require('../middleware/interceptor');
 var categoryController = require('../controllers/category');
 
 router.get('/', middleware, categoryController.show);
-router.post('/', categoryController.create);
-router.put('/', categoryController.update);
+router.post('/', middleware, categoryController.create);
+router.put('/', middleware, categoryController.update);
 
 module.exports = router;
