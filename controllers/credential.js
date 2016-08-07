@@ -12,8 +12,9 @@ module.exports = {
             if (!err) {
                 if (count > 0) {
                     res.status(200);
-                    res.send('ok');
-                    storeToken(credentialDto.email);
+                    var tokenHat = hat();
+                    storeToken(tokenHat,credentialDto.email);
+                    res.json({token:tokenHat});
                     return;
                 }
                 res.status(401);
@@ -58,8 +59,7 @@ module.exports = {
     }
 };
 
-function storeToken(email) {
-    var tokenHat = hat();
+function storeToken(tokenHat,email) {
 
     Credential.findOneAndUpdate({
         "email": email
