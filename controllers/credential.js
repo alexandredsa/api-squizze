@@ -13,8 +13,10 @@ module.exports = {
                 if (count > 0) {
                     res.status(200);
                     var tokenHat = hat();
-                    storeToken(tokenHat,credentialDto.email);
-                    res.json({token:tokenHat});
+                    storeToken(tokenHat, credentialDto.email);
+                    res.json({
+                        'APP-TOKEN': tokenHat
+                    });
                     return;
                 }
                 res.status(401);
@@ -55,11 +57,10 @@ module.exports = {
             res.send(credentialDto.email + ' is already registered');
 
         });
-
     }
 };
 
-function storeToken(tokenHat,email) {
+function storeToken(tokenHat, email) {
 
     Credential.findOneAndUpdate({
         "email": email
